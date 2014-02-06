@@ -1,0 +1,19 @@
+if (f.type.match('*.xml')) {
+
+var reader = new FileReader();
+
+// Closure to capture the file information.
+reader.onload = (function(theFile) {
+return function(e) {
+var span = document.createElement('span');
+span.innerHTML = "<li>" + e.target.result + "</li>";
+document.getElementById('ffff').insertBefore(span, null);
+output.push('<li>abcd</li>');
+document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+};
+})(f);
+
+reader.readAsText(f);
+} else {
+document.getElementById('ffff').innerHTML = '<ul>' + 'Not XML?' + '</ul>
+}
